@@ -1,0 +1,159 @@
+{extend name='base'/}
+{block name='content'}
+<style>
+    .nav-tabs li.active a{
+        border: 1px solid #428bca !important;
+        background-color: #428bca !important;
+        color: #ffffff;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">计划管理</h3>
+    </div>
+    <div class="panel-body">
+        <!-- TAB NAVIGATION -->
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('index')}">列表</a></li>
+            <li class="active"><a href="{:url('store')}">新增</a></li>
+        </ul>
+        <style>
+            .cxcalendar .date_hd{
+                z-index: 999;
+            }
+        </style>
+        <form style="margin-top: 10px;" action="" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">计划名称:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" id="inputID" class="form-control" value="" title="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">数量:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="1" name="num" id="inputID" class="form-control" value="1" title="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">责任人:</label>
+                <div class="col-sm-10">
+                <div class="radio">
+                    {foreach name='user' item='v'}
+                    <label>
+                        <input type="radio" name="person" id="inputID" value="{$v['name']}">
+                        {$v['name']}
+                    </label>
+                    {/foreach}
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">开始时间:</label>
+                <div class="col-sm-10">
+                    <input name="startdate" type="text" class="input_cxcalendar date-time" style="font-size:14px; width:100%; height: 34px; border: 1px solid #ccc; border-radius: 4px; padding: 6px 12px;line-height: 1.4; color: #555; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">结束时间:</label>
+                <div class="col-sm-10">
+                    <input name="enddate" type="text" class="input_cxcalendar date-time" style="font-size:14px; width:100%; height: 34px; border: 1px solid #ccc; border-radius: 4px; padding: 6px 12px;line-height: 1.4; color: #555; box-shadow: inset 0 1px 1px rgba(0,0,0,.075);">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">预览地址:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="url" id="inputID" class="form-control" value="" title="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">执行频率:</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="rate" id="inputID" value="1" checked="checked">
+                            阶段
+                        </label>
+                        <label>
+                            <input type="radio" name="rate" id="inputID" value="0">
+                            每天
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">重要程度:</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="zycd" id="inputID" value="0" checked="checked">
+                            一般
+                        </label>
+                        <label>
+                            <input type="radio" name="zycd" id="inputID" value="1">
+                            重要
+                        </label>
+                        <label>
+                            <input type="radio" name="zycd" id="inputID" value="2">
+                            紧急
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">正常进行:</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="well" id="inputID" value="1" checked="checked">
+                            是
+                        </label>
+                        <label>
+                            <input type="radio" name="well" id="inputID" value="0">
+                            否
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">状态:</label>
+                <div class="col-sm-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="sfwc" id="inputID" value="0" checked="checked">
+                            未完成
+                        </label>
+                        <label>
+                            <input type="radio" name="sfwc" id="inputID" value="1">
+                            已完成
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputID" class="col-sm-2 control-label">备注:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="note" id="inputID" class="form-control" value="" title="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        $('.input_cxcalendar').each(function(){
+            var a = new Calendar({
+                targetCls: $(this),
+                type: 'yyyy-mm-dd',
+                wday:2
+            },function(val){
+                console.log(val);
+            });
+        });
+    </script>
+</div>
+
+{/block}

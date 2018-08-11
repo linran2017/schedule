@@ -1,0 +1,3841 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>{$headerTitle}</title>
+    <script type="text/javascript" src="__STATIC__/index/js/jquery.js"></script>
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 14px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        li{
+            list-style: none;
+        }
+        /*头部区域*/
+        .header{
+            width: 100%;
+            height: 50px;
+            background: black;
+            position: relative;
+
+        }
+        .header a{
+            position: absolute;
+            top: 0;
+            right: 5px;
+            display: block;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+        }
+        /*头部区域结束*/
+        /*主体区域*/
+        .box{
+            margin: 20px auto;
+        }
+        /*标题区域*/
+        .box h1{
+            margin: 0 auto;
+            text-align: center;
+        }
+        /*标题区域结束*/
+        /*色块提示区域*/
+        .box .notice{
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            width: 1300px;
+            height: 20px;
+            position: relative;
+        }
+        .box .notice .notice-box{
+            width: 400px;
+            height: 20px;
+            margin: 0 auto;
+        }
+        .box .notice p{
+            float: left;
+            margin-right: 10px;
+        }
+        .box .notice p span{
+            display: block;
+            float: left;
+            height: 20px;
+        }
+        .box .notice p .explain{
+            line-height: 20px;
+            text-align: right;
+            width: 60px;
+        }
+        .box .notice p .color{
+            height:20px;
+            width: 30px;
+        }
+        .box .notice .nav-box{
+            position: absolute;
+            right: 220px;
+            top: 0;
+        }
+        .box .notice .nav-box .nav-btn{
+            display: inline-block;
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #343a40;
+            color: white;
+            cursor: pointer;
+        }
+        .box .notice .nav-box .nav-btn:hover{
+            opacity: 0.8;
+        }
+        .box .notice .date-box{
+            position: absolute;
+            right: 30px;
+            top: 0;
+        }
+        .box .notice .date-box .confirm{
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #343a40;
+            color: white;
+            cursor: pointer;
+        }
+        .box .notice .date-box a:hover{
+            opacity: 0.8;
+        }
+        /*色块提示区域结束*/
+        /*表格头部区域*/
+        .box .header{
+            width: 1300px;
+            height: 50px;
+            background: none;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-bottom: none;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 600;
+        }
+        .box .header .name{
+            border-right: 1px solid black;
+            width: 89px;
+            height: 50px;
+            float: left;
+        }
+        .box .header .duty{
+            border-right: 1px solid black;
+            width: 154px;
+            height: 50px;
+            float: left;
+            position: relative;
+        }
+        .box .header .duty .duty-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .header .duty .duty-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .box .header .title{
+            border-right: 1px solid black;
+            width: 259px;
+            height: 50px;
+            float: left;
+            position: relative;
+            cursor: pointer;
+        }
+        .box .header .title .title-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .header .title .title-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .box .header .num{
+            border-right: 1px solid black;
+            width: 49px;
+            height: 50px;
+            float: left;
+        }
+        .box .header .process{
+            width: 650px;
+            height: 50px;
+            float: left;
+        }
+        .box .header .status{
+            border-left: 1px solid black;
+            width: 94px;
+            height: 50px;
+            float: left;
+            position: relative;
+        }
+        .box .header .status .status-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .header .status .status-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        /*表格头部区域结束*/
+        /*表格主体区域*/
+        .box ul{
+            width:  1300px;
+            border-left:1px solid black;
+            border-right: 1px solid black;
+            padding: 0;
+            margin: 0 auto;
+        }
+        .box ul li{
+            width: 1300px;
+            height: 106px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-bottom:15px;
+            position: relative;
+        }
+        .box ul li:last-of-type{
+            margin-bottom: 0px;
+        }
+        .box .ul .li .name{
+            float: left;
+            width: 89px;
+            border-right: 1px solid black;
+            height: 106px;
+            position: relative;
+        }
+        .box .ul .li .name .name-text{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .box .ul .li .name .name-text .person-name{
+            cursor: pointer;
+        }
+        .box .ul .li .name .name-text .unonce{
+            position: absolute;
+            right: -401px;
+            top: 0;
+            width: 400px;
+            padding-bottom: 0;
+            border: 1px solid #686868;
+            border-bottom: none;
+            display: none;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box-title{
+            width: 400px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-bottom: 1px solid #686868;
+            background: #ddd;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box{
+            width: 400px;
+            background: #EEEEEE;
+            padding-top: 20px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day{
+            border-bottom: 1px solid #686868;
+            border-top: 1px solid #686868;
+            width: 400px;
+            background: #c6c8ca;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-haeder{
+            width: 400px;
+            height:20px;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-haeder .day-play-id{
+            width: 44px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            float: left;
+            border-right: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-haeder .day-play-title{
+            width: 355px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-title{
+            border-bottom: 1px solid #686868;
+            width: 400px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-play-title{
+            width: 355px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box{
+            width: 400px;
+            height: 35px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box .day-every-title{
+            width: 400px;
+            height: 35px;
+            text-align: center;
+            border-bottom: 1px solid #686868;
+            position: relative;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box .day-every-title .day-play-every-id{
+            width: 44px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            float: left;
+            border-right: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box .day-every-title .day-play-every-title{
+            width: 355px;
+            height: 35px;
+            text-align: center;
+            float: left;
+            position: relative;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box .day-every-title .day-title-text{
+            display: block;
+            width:355px;
+            text-align: left;
+            padding-left: 5px;
+            position: absolute;
+            left: 0;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-day .day-plan-box .day-every-title:last-of-type{
+            border-bottom: none;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week{
+            border-bottom: 1px solid #686868;
+            border-top: 1px solid #686868;
+            width: 400px;
+            margin-top: 20px;
+            background: #c6c8ca;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week  .week-title{
+            border-bottom: 1px solid #686868;
+            width: 400px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-haeder{
+            width: 400px;
+            height:20px;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-haeder .week-play-id{
+            width: 44px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-right: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-haeder .week-play-title{
+            width: 300px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-haeder .week-play-type{
+            width: 54px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-left: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box{
+            width: 400px;
+            height: 35px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title{
+            width: 400px;
+            height: 35px;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title:last-of-type{
+            border-bottom: none;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title .week-play-every-id{
+            width: 44px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            float: left;
+            border-right: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title .week-play-every-title{
+            width: 300px;
+            height: 35px;
+            text-align: center;
+            float: left;
+            position: relative;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title .week-play-every-title .week-title-text{
+            display: block;
+            width:100%;
+            text-align: left;
+            position: absolute;
+            left: 0;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-week .week-plan-box .week-every-title .week-play-every-date{
+            width: 54px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-left: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month{
+            border-bottom: 1px solid #686868;
+            border-top: 1px solid #686868;
+            width: 400px;
+            margin-top: 20px;
+            background: #c6c8ca;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-title{
+            border-bottom: 1px solid #686868;
+            width: 400px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-haeder{
+            width: 400px;
+            height:20px;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-haeder .month-play-id{
+            width: 44px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-right: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-haeder .month-play-title{
+            width: 300px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-haeder .month-play-type{
+            width: 54px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-left: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box{
+            width: 400px;
+            height: 35px;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title{
+            width: 400px;
+            height: 35px;
+            border-bottom: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title:last-of-type{
+            border-bottom: none;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title .month-play-every-id{
+            width: 44px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            float: left;
+            border-right: 1px solid #686868;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title .month-play-every-title{
+            width: 300px;
+            height: 35px;
+            text-align: center;
+            float: left;
+            position: relative;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title .month-play-every-title .month-title-text{
+            display: block;
+            width:100%;
+            text-align: left;
+            position: absolute;
+            left: 0;
+        }
+        .box .ul .li .name .name-text .unonce .unonce-box .unonce-every-month .month-plan-box .month-every-title .month-play-every-date{
+            width: 54px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-left: 1px solid #686868;
+            float: left;
+        }
+        .box .ul .li .name .name-text .show{
+            display: block;
+            z-index: 99999;
+        }
+        .box .ul .li .duty{
+            float: left;
+            width: 154px;
+            border-right: 1px solid black;
+            height:106px;
+            position: relative;
+        }
+        .box .ul .li .duty .duty-header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 154px;
+            height: 61px;
+            text-align: center;
+            line-height: 61px;
+            font-weight: 700;
+        }
+        .box .ul .li .duty .duty-header .duty-every-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .ul .li .duty .duty-header .duty-every-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .box .ul .li .duty .duty-box {
+            position: absolute;
+            width: 154px;
+            top:60px;
+            left: 0;
+            height: 45px;
+            border-top: 1px solid black;
+        }
+        .box .ul .li .duty .duty-box .duty-every{
+            border-bottom: 1px solid black;
+            width: 154px;
+            height: 35px;
+            text-align: center;
+            margin-top: 8px;
+            border-top: 1px solid black;
+            position: relative;
+        }
+        .box .ul .li .duty .duty-box .duty-every .duty-text{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left:0;
+            transform: translate(0,-50%);
+            text-align: center;
+            cursor: pointer;
+        }
+        .box .ul .li .duty .duty-box .duty-every .duty-text a{
+            color: black;
+        }
+        .box .ul .li .title{
+            float: left;
+            width: 259px;
+            border-right: 1px solid black;
+            height: 106px;
+            position: relative;
+        }
+        .box .ul .li .title .title-header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 259px;
+            height: 61px;
+            text-align: center;
+            line-height: 61px;
+            font-weight: 700;
+            position: relative;
+        }
+        .box .ul .li .title .title-header .title-every-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .ul .li .title .title-header .title-every-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .box .ul .li .title .title-box{
+            position: absolute;
+            width: 259px;
+            top:60px;
+            left: 0;
+            height: 45px;
+            border-top: 1px solid black;
+        }
+        .box .ul .li .title .title-box .title-every{
+            margin-top: 8px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            width: 259px;
+            height: 35px;
+            position: relative;
+        }
+        .box .ul .li .title .title-box .title-every .title-text{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left:0;
+            text-align: center;
+            cursor: pointer;
+            height: 35px;
+        }
+        .box .ul .li .title .title-box .title-every .title-text .plan-title-text{
+            width: 100%;
+            position: absolute;
+            left:0;
+            top: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box .ul .li .title .title-box .title-every .title-text .plan-title-text a{
+            display: block;
+            color: black;
+        }
+        .box .ul .li .title .title-box .title-every .title-text .plan-title-text span{
+            display: block;
+        }
+        .box .ul .li .title .title-box .title-every .title-text .plan-content{
+            position: absolute;
+            top: 0;
+            right:-352px;
+            background: #343a40;
+            width: 355px;
+            padding-top: 0;
+            padding-bottom: 0;
+            color: white;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            display: none;
+        }
+        .box .ul .li .title .title-box .title-every .title-text .plan-content .content{
+            width: 345px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 5px;
+            text-align: left;
+                 }
+        .box .ul .li .title .title-box .title-every .title-text .enter{
+            display: block;
+            z-index: 99999;
+        }
+        .box .ul .li .title .title-box .title-every .url{
+            cursor: pointer;
+            color: darkblue;
+            text-decoration: none;
+        }
+        .box .ul .li .title .title-box .title-every .url:hover{
+            opacity: 0.9;
+        }
+        .box .ul .li .num{
+            float: left;
+            width: 49px;
+            border-right: 1px solid black;
+            height: 106px;
+            position: relative;
+        }
+        .box .ul .li .num .num-header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 49px;
+            height: 61px;
+            text-align: center;
+            line-height: 61px;
+            font-weight: 700;
+        }
+        .box .ul .li .num .num-box{
+            position: absolute;
+            width: 49px;
+            top:60px;
+            left: 0;
+            height: 45px;
+            border-top: 1px solid black;
+        }
+        .box .ul .li .num .num-box .num-every{
+            border-bottom: 1px solid black;
+            width: 49px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            margin-top: 8px;
+            border-top: 1px solid black;
+        }
+        .box .ul .li .process{
+            float: left;
+            width: 650px;
+            height: 106px;
+            position: relative;
+        }
+        .box .ul .li .process .timetable{
+            width: 650px;
+            height: 61px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            z-index: 999;
+        }
+        .box .ul .li .process .timetable .day-box{
+            width: 650px;
+            height:29px;
+            border-bottom: 1px solid black;
+        }
+        .box .ul .li .process .timetable .day-box .day{
+            height: 29px;
+            width: 20px;
+            border-right: 1px solid black;
+            text-align: center;
+            line-height: 29px;
+            float: left;
+            background: #b3bdb7;
+            color: white;
+        }
+        .box .ul .li .process .timetable .week-box{
+            width: 650px;
+            height: 30px;
+            border-bottom: 1px solid black;
+        }
+        .box .ul .li .process .timetable .week-box .week{
+            height: 30px;
+            width: 20px;
+            border-right: 1px solid black;
+            text-align: center;
+            line-height: 30px;
+            float: left;
+            background: #b3bdb7;
+            color: white;
+        }
+        .box .ul .li .process .process-box{
+            position: absolute;
+            top: 61px;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 650px;
+            height: 45px;
+        }
+        .box .ul .li .process .process-box .td{
+            width: 20px;
+            height: 45px;
+            border-right: 1px solid black;
+            float: left;
+        }
+        .box .ul .li .process .line{
+            display: none;
+            width: 1px;
+            height: 45px;
+            position: absolute;
+            top: 61px;
+            background: black;
+        }
+        .box .ul .li .process .time-outbox{
+            width: 650px;
+            position: absolute;
+            top:61px;
+            left: 50%;
+            transform: translate(-50%,0);
+            height:45px;
+        }
+        .box .ul .li .process .time-box{
+            width: 650px;
+            height: 35px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-top: 8px;
+            position: relative;
+        }
+        .box .ul .li .process .time-box .time{
+            height: 35px;
+            width: 104px;
+            position: absolute;
+            top: 0;
+            left: 147px;
+        }
+        .box .ul .li .process .time-box .time .time-right{
+            height: 35px;
+            width: 5px;
+            background: red;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+        }
+        .box .ul .li .process .time-box .time .time-left{
+            height: 35px;
+            width: 5px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .box .ul .li .status{
+            float: left;
+            width: 94px;
+            border-left: 1px solid black;
+            height: 106px;
+            position: relative;
+        }
+        .box .ul .li .status .status-header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 94px;
+            height: 61px;
+            text-align: center;
+            line-height: 61px;
+            font-weight: 700;
+        }
+        .box .ul .li .status .status-header .status-every-header-text{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:0;
+            top:50%;
+            transform: translate(0,-50%);
+            cursor: pointer;
+        }
+        .box .ul .li .status .status-header .status-every-header-select{
+            position: absolute;
+            text-align: center;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .box .ul .li .status .status-box {
+            position: absolute;
+            width: 94px;
+            top:60px;
+            left: 0;
+            height: 45px;
+            border-top: 1px solid black;
+        }
+        .box .ul .li .status .status-box .status-every{
+            border-bottom: 1px solid black;
+            width: 94px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            margin-top: 8px;
+            border-top: 1px solid black;
+            position: relative;
+        }
+        .box .ul .li .status .status-box .status-every .btn{
+            display: block;
+            height: 20px;
+            width: 60px;
+            position: absolute;
+            top: 7px;
+            left: 17px;
+            background: #343a40;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .box .ul .li .status .status-box .status-every .btn:hover{
+            opacity: 0.8;
+        }
+        /*表格主体区域结束*/
+        .green{
+            background: green;
+        }
+        .gray{
+            background: #cccccc;
+        }
+        .pink{
+            background: pink;
+        }
+        .orange{
+            background: orangered;
+        }
+        .yellow{
+            background:yellow;
+        }
+        .blue{
+            background: blue;
+        }
+        .important-unfinish{
+            display: block;
+        }
+        .important-finish{
+            display: none;
+        }
+        .usual-unfinish{
+            display:  none;
+        }
+        .usual-finish {
+            display:  none;
+        }
+        /*主体区域结束*/
+        /*楼层按钮*/
+        .lou-btn{
+            display: none;
+            position: fixed;
+            left: 2px;
+            top: 300px;
+            width: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background: #343a40;
+            color: white;
+        }
+        .lou-btn:hover{
+            opacity: 0.8;
+        }
+        .lou-box{
+            position: fixed;
+            left: 2px;
+            top: 30px;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            display: none;
+        }
+        .lou-box .lou{
+            display: block;
+            width: 50px;
+            height: 35px;
+            margin-bottom: 2px;
+            background: #343a40;
+            color: white;
+            text-align: center;
+            line-height: 35px;
+        }
+        .lou-box .lou:last-of-type{
+            margin-bottom: 0px;
+        }
+        .lou-box .lou:hover{
+            opacity: 0.8;
+        }
+        /*楼层按钮结束*/
+        /*鼠标移入颜色*/
+        .mousein{
+        }
+        .active{
+            background: #999;
+        }
+        /*鼠标移入颜色结束*/
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            //设置计划名称文本高度居中
+            function titlecenter() {
+                $('.plan-title-text').each(function () {
+                    var jqthis=$(this);
+                    if(jqthis.height()!==0){
+                        var text_height=jqthis.height();
+                        //console.log('标题文本高度'+text_height);
+                        var text_top=(35-text_height)/2;
+                        //console.log('标题顶部距离'+text_top);
+                        jqthis.css({'top':text_top+'px'});
+                    }
+                })
+            }
+            titlecenter();
+            //设置计划名称文本高度居中结束
+
+            //每个人的计划按重要程度和状态的value显示
+            function display() {
+                var li_length=$('li').length;
+                for(var i=0;i<li_length;i++){
+                    var importance_val=$('li').eq(i).find('.title-every-header-select').val();
+                    var finish_val=$('li').eq(i).find('.status-every-header-select').val();
+                    console.log('重要程度'+importance_val);
+                    console.log('状态'+finish_val);
+                    if(importance_val==1){
+                        if(finish_val==0){
+                            $('li').eq(i).find('.usual-unfinish').hide();
+                            $('li').eq(i).find('.important-unfinish').show();
+                            $('li').eq(i).find('.important-finish').hide();
+                            $('li').eq(i).find('.usual-finish').hide();
+                            $('li').eq(i).find('.status-every-header-text').text('未完成计划');
+                        }else if(finish_val==1){
+                            $('li').eq(i).find('.usual-unfinish').hide();
+                            $('li').eq(i).find('.important-unfinish').hide();
+                            $('li').eq(i).find('.important-finish').show();
+                            $('li').eq(i).find('.usual-finish').hide();
+                            $('li').eq(i).find('.status-every-header-text').text('已完成计划');
+                        }else if(finish_val==2){
+                            $('li').eq(i).find('.usual-unfinish').hide();
+                            $('li').eq(i).find('.important-unfinish').show();
+                            $('li').eq(i).find('.important-finish').show();
+                            $('li').eq(i).find('.usual-finish').hide();
+                            $('li').eq(i).find('.status-every-header-text').text('全部计划');
+                        }
+                        $('li').eq(i).find('.title-every-header-text').text('重要计划');
+                    }else if(importance_val==0){
+                        if(finish_val==0){
+                            $('li').eq(i).find('.usual-unfinish').show();
+                            $('li').eq(i).find('.important-unfinish').hide();
+                            $('li').eq(i).find('.important-finish').hide();
+                            $('li').eq(i).find('.usual-finish').hide();
+                            $('li').eq(i).find('.status-every-header-text').text('未完成计划');
+                        }else if(finish_val==1){
+                            $('li').eq(i).find('.usual-unfinish').hide();
+                            $('li').eq(i).find('.important-unfinish').hide();
+                            $('li').eq(i).find('.important-finish').hide();
+                            $('li').eq(i).find('.usual-finish').show();
+                            $('li').eq(i).find('.status-every-header-text').text('已完成计划');
+                        }else if(finish_val==2){
+                            $('li').eq(i).find('.usual-unfinish').show();
+                            $('li').eq(i).find('.important-unfinish').hide();
+                            $('li').eq(i).find('.important-finish').hide();
+                            $('li').eq(i).find('.usual-finish').show();
+                            $('li').eq(i).find('.status-every-header-text').text('全部计划');
+                        }
+                        $('li').eq(i).find('.title-every-header-text').text('一般计划');
+                    }else if(importance_val==3){
+                        if(finish_val==0){
+                            $('li').eq(i).find('.usual-unfinish').show();
+                            $('li').eq(i).find('.important-unfinish').show();
+                            $('li').eq(i).find('.important-finish').hide();
+                            $('li').eq(i).find('.usual-finish').hide();
+                            $('li').eq(i).find('.status-every-header-text').text('未完成计划');
+                        }else if(finish_val==1){
+                            $('li').eq(i).find('.usual-unfinish').hide();
+                            $('li').eq(i).find('.important-unfinish').hide();
+                            $('li').eq(i).find('.important-finish').show();
+                            $('li').eq(i).find('.usual-finish').show();
+                            $('li').eq(i).find('.status-every-header-text').text('已完成计划');
+                        }else if(finish_val==2){
+                            $('li').eq(i).find('.usual-unfinish').show();
+                            $('li').eq(i).find('.important-unfinish').show();
+                            $('li').eq(i).find('.important-finish').show();
+                            $('li').eq(i).find('.usual-finish').show();
+                            $('li').eq(i).find('.status-every-header-text').text('全部计划');
+                        }
+                        $('li').eq(i).find('.title-every-header-text').text('全部计划');
+                    }
+                }
+            }
+            display();
+            //每个人的计划按重要程度和状态的value显示结束
+
+            //设置li和li里面的元素的高度
+            function liheight() {
+                var length=$('li').length;
+                var ul_height=0;
+                for(var j=0;j<length;j++){
+                    var time_num=0;
+                    for(var m=0;m<$('li').eq(j).find('.time-box').length;m++){
+                        var display=$('li').eq(j).find('.time-box').eq(m).css('display');
+                        if(display=='block'){
+                            time_num=time_num+1;
+                        }
+                    }
+                    //console.log('任务数量'+time_num);
+                    if(time_num>0) {
+                        var box_height = 45 * time_num;
+                        var li_height = box_height + 61 + 8;
+                        $('li').eq(j).css({'height': li_height+ 'px'});
+                        $('li').eq(j).find('.name').css({'height':li_height+'px'});
+                        //$('li').eq(j).find('.name').css({'line-height':li_height+'px'});
+                        //$('li').eq(j).find('.name').css({'borderBottom':'1px solid black'});
+                        $('li').eq(j).find('.duty').css({'height': li_height + 'px'});
+                        $('li').eq(j).find('.title').css({'height': li_height + 'px'});
+                        $('li').eq(j).find('.num').css({'height': li_height + 'px'});
+                        //$('li').eq(j).find('.rate').css({'height': li_height + 'px'});
+                        $('li').eq(j).find('.process').css({'height': li_height + 'px'});
+                        $('li').eq(j).find('.status').css({'height': li_height + 'px'});
+                        $('li').eq(j).find('.title-box').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.duty-box').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.num-box').css({'height': box_height + 'px'});
+                        //$('li').eq(j).find('.rate-box').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.process-box').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.line').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.time-outbox').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.status-box').css({'height': box_height + 'px'});
+                        $('li').eq(j).find('.td').css({'height': box_height + 'px'});
+                    }else{
+                        $('li').eq(j).css({'height': '106px'});
+                        $('li').eq(j).find('.name').css({'height':'106px'});
+                        //$('li').eq(j).find('.name').css({'line-height':'106px'});
+                        //$('li').eq(j).find('.name').css({'borderBottom':'1px solid black'});
+                        $('li').eq(j).find('.duty').css({'height': '106px'});
+                        $('li').eq(j).find('.title').css({'height': '106px'});
+                        $('li').eq(j).find('.num').css({'height': '106px'});
+                        //$('li').eq(j).find('.rate').css({'height': '106px'});
+                        $('li').eq(j).find('.process').css({'height': '106px'});
+                        $('li').eq(j).find('.status').css({'height': '106px'});
+                        $('li').eq(j).find('.title-box').css({'height': '45px'});
+                        $('li').eq(j).find('.duty-box').css({'height': '45px'});
+                        $('li').eq(j).find('.num-box').css({'height': '45px'});
+                        //$('li').eq(j).find('.rate-box').css({'height': '45px'});
+                        $('li').eq(j).find('.process-box').css({'height': '45px'});
+                        $('li').eq(j).find('.line').css({'height': '45px'});
+                        $('li').eq(j).find('.time-outbox').css({'height': '45px'});
+                        $('li').eq(j).find('.status-box').css({'height': '45px'});
+                        $('li').eq(j).find('.td').css({'height': '45px'});
+                    }
+                    ul_height=($('li').eq(j).height()+2)+ul_height;
+                }
+                //设置ul的高度
+                ul_height=ul_height+15*(length-1);
+                $('ul').css({'height':ul_height+'px'});
+                //设置ul的高度结束
+            }
+            liheight();
+            //设置li和li里面的元素的高度结束
+
+            //设置姓名居中
+            function namecenter() {
+                var name_length=$('.name-text').length;
+                for(var n=0;n<name_length;n++){
+                     var name_text_height=$('.name-text').eq(n).height();
+                     var name_height=$('.name-text').eq(n).parent('.name').height();
+                     var name_top=(name_height-name_text_height)/2;
+                     $('.name-text').eq(n).css({'top':name_top+'px'});
+                    $('.name-text').eq(n).find('.unonce').css({'top':-name_top+'px'});
+                }
+            }
+            namecenter();
+            //设置姓名居中结束
+
+            //除管理员外，按每一个的计划数量排序
+            function liorder() {
+                var li_length = $('li').length;
+                for (var b=1;b<li_length;b++){
+                    for(var c=1;c<li_length-1;c++){
+                        var num=0;
+                        var timebox_long=$('li').eq(c).find('.time-box').length;
+                        for(var d=0;d<timebox_long;d++){
+                            var display=$('li').eq(c).find('.time-box').eq(d).css('display');
+                            if(display=='block'){
+                                num=num+1;
+                            }
+                        }
+                        var next_num=0;
+                        var timebox_long=$('li').eq(c+1).find('.time-box').length;
+                        for(var e=0;e<timebox_long;e++){
+                            var next_display=$('li').eq(c+1).find('.time-box').eq(e).css('display');
+                            if(next_display=='block'){
+                                next_num=next_num+1;
+                            }
+                        }
+                        var name=$('li').eq(c).find('.name').text();
+                        // console.log(name+'当前色块数量'+num);
+                        //console.log(name+'下一个色块数量'+next_num);
+                        if(next_num>num){
+                            var new_obj=$('li').eq(c+1).clone(true);
+                            //console.log(new_obj);
+                            $('li').eq(c+1).empty();
+                            $('li').eq(c+1).remove();
+                            $('li').eq(0).after(new_obj);
+
+                        }
+                    }
+                }
+
+           }
+           liorder();
+            //除管理员外，按每一个的计划数量排序结束
+
+            //设置非阶段性计划的各元素高度
+            function unonce() {
+                var unonce_length=$('li').length;
+                for(var u=0;u<unonce_length;u++){
+                    var day_play_box=$('li').eq(u).find('.unonce').find('.day-plan-box');
+                    var day_every_title_num=day_play_box.find('.day-every-title').length;
+                    if(day_every_title_num==0){
+                        day_play_box.css({'height':'35px'});
+                    }else{
+                        var day_play_box_height=day_every_title_num*(35+1);
+                        day_play_box.css({'height':day_play_box_height+'px'});
+                    }
+                    var week_play_box=$('li').eq(u).find('.unonce').find('.week-plan-box');
+                    var week_every_title_num=week_play_box.find('.week-every-title').length;
+                    if(week_every_title_num==0){
+                        week_play_box.css({'height':'35px'});
+                    }else{
+                        var week_play_box_height=week_every_title_num*(35+1);
+                        week_play_box.css({'height':week_play_box_height+'px'});
+                    }
+                    var month_play_box=$('li').eq(u).find('.unonce').find('.month-plan-box');
+                    var month_every_title_num=month_play_box.find('.month-every-title').length;
+                    if(month_every_title_num==0){
+                        month_play_box.css({'height':'35px'});
+                    }else{
+                        var month_play_box_height=month_every_title_num*(35+1);
+                        month_play_box.css({'height':month_play_box_height+'px'});
+                    }
+                }
+            }
+            //设置非阶段性计划的各元素高度结束
+            
+            //非阶段计划标题文本居中
+            function unoncetextcenter() {
+                var day_title_text=$('.day-title-text').length;
+                for(var d=0;d<day_title_text;d++){
+                    var day_title_text_height=$('.day-title-text').eq(d).height();
+                    var day_title_text_top=(35-day_title_text_height)/2;
+                    $('.day-title-text').eq(d).css({'top':day_title_text_top+'px'});
+                }
+
+                var week_title_text=$('.week-title-text').length;
+                for(var w=0;w<week_title_text;w++){
+                    var week_title_text_height=$('.week-title-text').eq(w).height();
+                    var week_title_text_top=(35-week_title_text_height)/2;
+                    $('.week-title-text').eq(w).css({'top':week_title_text_top+'px'});
+                }
+
+                var month_title_text=$('.month-title-text').length;
+                for(var m=0;m<month_title_text;m++){
+                    var month_title_text_height=$('.month-title-text').eq(m).height();
+                    var month_title_text_top=(35-month_title_text_height)/2;
+                    $('.month-title-text').eq(m).css({'top':month_title_text_top+'px'});
+                }
+            }
+            //非阶段计划标题文本居中结束
+
+            //非阶段计划底部超出浏览器可视区域解决办法
+            function unoncemorebottom() {
+                var jqthis=$('.show');
+                var unonce_height=(jqthis.find('.unonce-box-title').height()+1)+(jqthis.find('.unonce-box').height()+50);
+                var unonce_top=jqthis.offset().top;
+                var unonce_bottom=unonce_height+unonce_top;
+                console.log('内容头部'+unonce_top);
+                console.log('内容高度'+unonce_height);
+                console.log('内容底部'+unonce_bottom);
+                var ul_height=$('ul').height();
+                var ul_top=$('ul').offset().top;
+                var ul_bottom=ul_height+ul_top;
+                $('body').css({'height':ul_bottom+10+'px'});
+                //console.log('内容高度'+content_height);
+                if(unonce_bottom>ul_bottom){
+                    var diff_top=unonce_bottom-ul_bottom;
+                    //console.log('超过');
+                    jqthis.css({'top':-diff_top+'px'});
+                }else{
+                    jqthis.css({'top':'0px'});
+                }
+            }
+            //非阶段计划底部超出浏览器可视区域解决办法
+
+            //日期按月份决定
+            function monthdate() {
+                var day_num=$('li').eq(0).find('.day').length;
+                if(day_num==31){
+                    $('.timetable').css({'width':'650px'});
+                    $('.day-box').css({'width':'650px'});
+                    $('.week-box').css({'width':'650px'});
+                    $('.process-box').css({'width':'650px'});
+                    $('.time-outbox').css({'width':'650px'});
+                    $('.time-box').css({'width':'650px'});
+                }else{
+                    $('.timetable').css({'width':20*day_num+(day_num+1-1-1)+'px','border-right':'1px solid black','border-left':'1px solid black'});
+                    $('.day-box').css({'width':20*day_num+(day_num+1-1-1)+'px'});
+                    $('.week-box').css({'width':20*day_num+(day_num+1-1-1)+'px'});
+                    $('.process-box').css({'width':20*day_num+(day_num+1-1)+'px'});
+                    $('.time-outbox').css({'width':20*day_num+(day_num+1-1)+'px','outline':'1px solid block'});
+                    $('.time-box').css({'width':20*day_num+(day_num+1-1-1)+'px'});
+                    var line_left=$('.time-outbox').position().left-1;
+                    //alert(line_left);
+                    $('.line').css({'display':'block','left':line_left+'px'});
+                }
+            }
+            monthdate();
+            //日期按月份决定
+
+
+            //日期悬浮效果
+            function float() {
+                $('li').each(function () {
+                    var jqthis=$(this);
+                    var jsthis=$(this)[0];
+                    jsthis.c=jqthis.index();
+                    var li_top=jqthis.offset().top;
+                    var li_height=jqthis.height();
+                    //console.log('li的高度'+li_height);
+                    var li_bottom=li_top+li_height;
+                    //console.log('li顶部'+li_top);
+                    var timetable_top=jqthis.find('.timetable').offset().top;
+                    // console.log('时间表'+timetable_top);
+                    var timetable_left=jqthis.find('.timetable').offset().left;
+                    // console.log('原来左侧'+timetable_left);
+                    var td_height=jqthis.find('.td').height();
+                    // console.log('td的高度'+td_height);
+                    var window_height=$(window).height();
+                    var timetable_width=jqthis.find('.timetable').width();
+                    //console.log('时间表宽度'+timetable_width);
+                    var process_width=jqthis.find('.process').width();
+                    //console.log('外层宽度'+process_width);
+                    var timetable_newleft=jqthis.find('.timetable').position().left;
+                    //console.log('新左侧'+timetable_newleft)
+                    function scrollmove(){
+                        $(document).scrollLeft(0);
+                        //console.log('浏览器可视区域高度'+window_height);
+                        //console.log('li的高度'+li_height);
+                        //console.log('第'+jsthis.c+'个');
+                        var t=$(document).scrollTop();
+                        /* if(jqthis.index()==jsthis.c){*/
+                        if(t<=li_bottom && t>=li_top && window_height<li_height){
+                            //console.log('滚动条高度'+t);
+                            //console.log(1);
+                            //console.log('现在左侧'+timetable_left);
+                            var top=t-li_top-1;
+                            var max_top=li_height-(8+37+8+1+60);
+                            if(top>max_top){
+                                top=max_top;
+                            }
+                            $('li').eq(jsthis.c).find('.timetable')
+                                .css({'top':top+'px'});
+                        }
+                        if(t<timetable_top || t>li_bottom || window_height>li_height){
+                            //console.log('滚动条高度'+t);
+                            //console.log(2);
+                            $('li').eq(jsthis.c).find('.timetable')
+                                .css({'top':'0px'});
+                            //console.log( $('li').eq(jsthis.c).find('.timetable').offset().left);
+                        }
+                        /*if(t<timetable_top){
+                            console.log(3);
+                            $('li').eq(jsthis.c).find('.timetable')
+                                .css({'position':'relative',});
+                            console.log( $('li').eq(jsthis.c).find('.timetable').offset().left);
+                        }*/
+                        /*else{
+                            console.log(3);
+                            $('li').eq(jsthis.c).find('.timetable')
+                                .css({'position':'relative'});
+                            console.log( $('li').eq(jsthis.c).find('.timetable').offset().left);
+                        }*/
+                    }
+                    /* }*/
+                    scrollmove();
+                })
+            }
+            $(window).scroll(function () {
+                float();
+                loubtn();
+            })
+            //日期悬浮效果结束
+
+            //设置色块的长度 位置
+            var time_length=$('.time-box').length;
+            var time=$('.time');
+            for(var i=0;i<time_length;i++){
+                var startdate=Number(time.eq(i).find('input[name=startdate]').val());
+                var enddate=Number(time.eq(i).find('input[name=enddate]').val());
+                var day=(enddate-startdate)+1;
+                var time_width=20*day+(day-1);
+                var time_left=20*(startdate-1)+(startdate-1);
+                //var time_right=time_left+time_width;
+                time.eq(i).css({'width':time_width+'px','left':time_left+'px'});
+
+            }
+            //设置色块的长度 位置结束
+
+            //滑块右侧移入
+            $('.time-right').mouseenter(function () {
+                if($(this).parent('.time').hasClass('gray') || $(this).parent('.time').hasClass('green')){
+                    $(this).css({'cursor':'not-allowed'});
+            }else{
+                    $(this).css({'cursor':'ew-resize'});
+                }
+            })
+            //滑块右侧移入结束
+
+            //滑块左侧移入
+           $('.time-left').mouseenter(function () {
+                if($(this).parent('.time').hasClass('gray') || $(this).parent('.time').hasClass('green')){
+                    $(this).css({'cursor':'not-allowed'});
+                }else{
+                    $(this).css({'cursor':'ew-resize'});
+                }
+            })
+            //滑块左侧移入结束
+
+            //滑块移入
+            $('.time').mouseenter(function () {
+                if($(this).hasClass('gray') || $(this).hasClass('green')){
+                    $(this).css({'cursor':'not-allowed'});
+                }else{
+                    $(this).css({'cursor':'move'});
+                }
+            })
+            //滑块移入结束
+
+            //滑块右侧拉短拉长
+            $('.time-right').mousedown(function (ev) {
+                if($(this).parent('.time').hasClass('gray') || $(this).parent('.time').hasClass('green') || $(this).siblings('.time-left').hasClass('left-width')){
+                    return false;
+                }else{
+                    if($(this).parent('.time').hasClass('f') || $(this).hasClass('width') || $(this).siblings('.time-left').hasClass('left-width')){
+                        return false;
+                    }
+                    $(this).addClass('width');
+                    m_left=ev.pageX;
+                    old_width=$(this).parent('.time').width();
+                    time_l=$(this).parent('.time').position().left;
+                    //alert(time_left);
+                    $(document).mousemove(function (ev) {
+                        m_n_left=ev.pageX;
+                        diff_left=m_n_left-m_left;
+                        new_width=diff_left+old_width;
+                        if(new_width<20){
+                            new_width=20;
+                        }
+                        var max_long=$('.time-box').width();
+                        max_width=max_long-time_l;
+                        if(new_width>max_width){
+                            new_width=max_width;
+                        }
+                        $('.width').parent('.time').css({'width':new_width+'px'});
+                        $('.width').css({'right':'0px'});
+                        $('.width').siblings('.time-left').css({'left':'0px'});
+                    })
+                }
+
+            })
+            $('.time-right').mouseup(function (ev) {
+                ev.stopPropagation();
+                $(document).off('mousemove');
+                if($(this).parent('.time').hasClass('f') || $(this).siblings('.time-left').hasClass('left-width')){
+                    return false;
+                }else{
+                    if(confirm('确定要右侧拉动改变时间吗？')){
+                        var p_width=$('.width').parent('.time').width();
+                        if(p_width==old_width){
+                            $('.width').removeClass('width');
+                            return false;
+                        }
+                        //alert(p_width);
+                        console.log('宽度'+p_width);
+                        var day=parseInt((p_width+1)/20-1)+1;
+                        //alert(day);
+                        var startdate=Number($('.width').parent('.time').find('input[name=startdate]').val());
+                        //alert(startdate);
+                        var enddate=startdate+day-1;
+                        if(enddate<startdate){
+                            enddate=startdate
+                        }
+                        var max_enddate=$('li').eq(0).find('.day').length;
+                        if(enddate>max_enddate){
+                            enddate=max_enddate;
+                        }
+                        //alert(enddate);
+                        console.log('结束时间'+enddate);
+                        new_day=enddate-startdate+1;
+                        var time_width=20*new_day+(new_day-1);
+                        /* if(time_width<20){
+                             time_width=20;
+                         }*/
+                        /*if(time_width>max_width){
+                            time_width=max_width;
+                        }*/
+                        $('.width').parent('.time').find('input[name=enddate]').val(enddate);
+                        $('.width').parent('.time').css({'width':time_width+'px'});
+                        $('.width').css({'right':'0px'});
+                        $('.width').siblings('.time-left').css({'left':'0px'});
+                        var id=Number($('.width').parent('.time').find('input[name=id]').val());
+                        $('.time-right').each(function () {
+                            var jqthis = $(this);
+                            var this_id = Number(jqthis.parent('.time').find('input[name=id]').val());
+                            if (this_id == id) {
+                                jqthis.addClass('width');
+                                jqthis.parent('.time').find('input[name=enddate]').val(enddate);
+                                jqthis.parent('.time').css({'width': time_width + 'px'});
+                                jqthis.css({'right': '0px'});
+                                jqthis.siblings('.time-left').css({'left': '0px'});
+                            }
+                        })
+                        //alert(time_width);
+                        $.ajax({
+                            url:"http://work.linran136.com/index/index/planwidth",
+                            data:{id:id,enddate:enddate},
+                            type:'post',
+                            success:function (reg) {
+                                console.log(reg);
+                                if(reg){
+                                    $('.width').removeClass('width');
+                                }
+                            }
+                        })
+                    }else{
+                        $('.width').parent('.time').css({'width': old_width+'px'});
+                        $('.width').css({'right':'0px'});
+                        $('.width').siblings('.time-left').css({'left':'0px'});
+                        $('.width').removeClass('width');
+                    }
+                }
+
+            })
+            //滑块右侧拉短拉长结束
+
+            //滑块左侧拉短拉长
+            $('.time-left').mousedown(function (ev) {
+                if($(this).parent('.time').hasClass('gray') || $(this).parent('.time').hasClass('green')){
+                    return false;
+                }else{
+                    if($(this).parent('.time').hasClass('f') || $(this).siblings('.time-right').hasClass('width') || $(this).hasClass('left-width')){
+                       // alert(1);
+                        return false;
+                    }
+                    $(this).addClass('left-width');
+                    m_left=ev.pageX;
+                    old_width=$(this).parent('.time').width();
+                    time_l=$(this).parent('.time').position().left;
+                    console.log('旧左侧'+time_l);
+                    time_r=time_l+old_width;
+                    //alert(time_r);
+                    console.log('右侧'+time_r);
+                    console.log('旧宽度'+old_width);
+                    //alert(time_left);
+                    $(document).mousemove(function (ev) {
+                        m_n_left=ev.pageX;
+                        diff_left=m_n_left-m_left;
+                       // new_width=diff_left+old_width;
+                        new_left=diff_left+time_l;
+                        console.log('新左侧'+new_left);
+                      /*  if(new_width<20){
+                            new_width=20;
+                        }
+                        max_width=650-time_r;
+                        if(new_width>max_width){
+                            new_width=max_width;
+                        }*/
+                        if(new_left<0){
+                            new_left=0
+                        }
+                        var max_l=time_r-20;
+                        if(new_left>max_l){
+                            new_left=max_l;
+                        }
+                        new_width=time_r-new_left;
+                        console.log('新宽度'+new_width);
+                        $('.left-width').parent('.time').css({'left':new_left+'px'});
+                        $('.left-width').parent('.time').css({'width':new_width+'px'});
+                        $('.left-width').css({'left':'0px'});
+                        $('.left-width').siblings('.time-right').css({'right':'0px'});
+                        //$('.width').parent('.time').css({'right':time_r+'px'});
+                    })
+                }
+
+            })
+            $('.time-left').mouseup(function (ev) {
+                ev.stopPropagation();
+                $(document).off('mousemove');
+                if($(this).parent('.time').hasClass('f') || $(this).siblings('.time-right').hasClass('width')){
+                    // alert(1);
+                    return false;
+                }else{
+                    if(confirm('确定要左侧拉动改变时间吗')){
+                        var end_left=$(this).parent('.time').position().left;
+                        if(end_left==time_l){
+                            $('.left-width').removeClass('left-width');
+                            return false;
+                        }
+                        //alert(p_width);
+                        var  startdate=parseInt(end_left/21)+1;
+                        //alert(day);
+                        var enddate=Number($('.left-width').parent('.time').find('input[name=enddate]').val());
+                        //alert(startdate);
+                        console.log('左侧拉动时鼠标按下时的结束时间'+enddate);
+                        if(startdate<1){
+                            startdate=1;
+                        }
+                        if(startdate>enddate){
+                            startdate=enddate;
+                        }
+                        console.log('左侧拉动时新的开始时间'+startdate);
+                        time_end_left=20*(startdate-1)+(startdate-1);
+                        console.log('左侧拉动抬起新左侧'+time_end_left);
+                        time_end_width=time_r-time_end_left ;
+                        console.log('左侧拉动抬起新宽度'+time_end_width);
+                        $('.left-width').parent('.time').find('input[name=startdate]').val(startdate);
+                        $('.left-width').parent('.time').css({'width':time_end_width+'px'});
+                        $('.left-width').parent('.time').css({'left':time_end_left+'px'});
+                        $('.left-width').css({'left':'0px'});
+                        $('.left-width').siblings('.time-right').css({'right':'0px'});
+                        var id=Number($('.left-width').parent('.time').find('input[name=id]').val());
+                        //alert(time_width);
+                        $('.time-left').each(function () {
+                            var jqthis = $(this);
+                            var this_id = Number(jqthis.parent('.time').find('input[name=id]').val());
+                            if (this_id == id) {
+                                jqthis.addClass('left-width');
+                                jqthis.parent('.time').find('input[name=startdate]').val(startdate);
+                                jqthis.parent('.time').css({'width':time_end_width+'px'});
+                                jqthis.parent('.time').css({'left':time_end_left+'px'});
+                                jqthis.css({'left':'0px'});
+                                jqthis.siblings('.time-right').css({'right':'0px'});
+                            }
+                        })
+                        $.ajax({
+                            url:"http://work.linran136.com/index/index/planleftwidth",
+                            data:{id:id,startdate:startdate},
+                            type:'post',
+                            success:function (reg) {
+                                console.log(reg);
+                                if(reg){
+                                    $('.left-width').removeClass('left-width');
+                                }
+                            }
+                        })
+                    }else{
+                        $('.left-width').parent('.time').css({'width':old_width+'px'});
+                        $('.left-width').parent('.time').css({'left':time_l+'px'});
+                        $('.left-width').css({'left':'0px'});
+                        $('.left-width').siblings('.time-right').css({'right':'0px'});
+                        $('.left-width').removeClass('left-width');
+                    }
+                }
+
+            })
+            //滑块左侧拉短拉长结束
+
+            //左右移动
+            $('.time').mousedown(function (ev) {
+                if($(this).hasClass('gray') || $(this).hasClass('green')){
+                    return false;
+                }else {
+                    if($(this).find('.time-right').hasClass('width') || $(this).find('.time-left').hasClass('left-width') || $(this).hasClass('f')){
+                        return false;
+                    }
+                    $(this).addClass('f');
+                    mouse_left=ev.pageX;
+                    o_left=$(this).position().left;
+                    //alert(mouse_left)
+                    console.log('移动鼠标按下时的左侧'+o_left);
+                    t_width=$(this).width();
+                    console.log('移动鼠标按下时的宽度'+t_width);
+                    //获得每一个li在浏览器的位置
+                    /* li_top=$('.li').eq(0).offset().top;
+                  // alert(li_top);
+                    li_bottom=li_top+431;
+                    a=$(this).parents('.li').index();
+                    //alert(a);
+                    //alert($('.li').eq(a).offset().top);
+                    this_li_top=li_top+a*431
+                    this_li_bottom=li_top+a*431+431;*/
+                    $(document).mousemove(function (ev) {
+                        // console.log(ev.target);
+                        var mouse_new_left=ev.pageX;
+                        var mouse_new_top=ev.pageY;
+                        var differ_left=mouse_new_left-mouse_left;
+                        var time_new_left=o_left+differ_left;
+                        if(time_new_left<0){
+                            time_new_left=0;
+                        }
+                        var max_long=$('.time-box').width();
+                        max_left=max_long-t_width;
+                        if(time_new_left>max_left){
+                            time_new_left=max_left;
+                        }
+                        //console.log('移动时鼠标移动时的左侧'+time_new_left);
+                        $('.f').css({'left':time_new_left+'px'});
+                        $('.f').find('.time-right').css({'right':'0px'});
+                        $('.f').find('.time-left').css({'left':'0px'});
+
+                        /* if(mouse_new_top>=this_li_top && mouse_new_top<=this_li_bottom){
+                             $('.f').find('.time-right').css({'right':'0px'});
+                             $('.f').css({'left':time_new_left+'px'});
+                         }else{
+                             var obj=$('.f').clone(true);
+                             console.log(obj);
+                             $('.f').append(obj);
+                             obj.find('.time-right').css({'right':'0px'});
+                             obj.css({'left':time_new_left+'px'});
+                         }*/
+
+                    })
+                }
+            })
+            $('.time').mouseup(function (ev) {
+                //var m_last_top=ev.pageY;
+                $(document).off('mousemove');
+                if($(this).find('.time-right').hasClass('width') || $(this).find('.time-left').hasClass('left-width')){
+                    return false;
+                }else{
+                    if(confirm('确定要移动改变时间吗')){
+                        var time_left=$(this).position().left;
+                        if(time_left==o_left){
+                            $('.f').removeClass('f');
+                            return false;
+                        }
+                        console.log('移动时鼠标抬起时的左侧'+time_left);
+                        //alert(time_left);
+                        var old_startdate=Number($('.f').find('input[name=startdate]').val());
+                        console.log('移动时鼠标抬起旧的开始时间'+old_startdate);
+                        startdate=parseInt(time_left/21)+1;
+                        console.log('移动时鼠标抬起新的开始时间'+startdate);
+                        if(startdate<1){
+                            startdate=1;
+                        }
+
+                        var ahead=0;
+                        if(startdate<old_startdate){
+                            ahead=1;
+                        }else {
+                            ahead=0;
+                        }
+                        var old_enddate=Number($('.f').find('input[name=enddate]').val());
+                        var old_day=old_enddate-old_startdate+1;
+                        console.log('移动时的天数'+old_day);
+                        var max_enddate=$('li').eq(0).find('.day').length;
+                        var max_startdate=max_enddate-old_day+1;
+                        if(startdate>max_startdate){
+                            startdate=max_startdate;
+                        }
+                        var enddate=startdate+old_day-1;
+                        //alert(startdate);
+                        //alert(enddate);
+                        console.log('移动时鼠标抬起新的结束时间'+enddate);
+                        var time_n_left=20*(startdate-1)+(startdate-1);
+                        $('.f').find('input[name=startdate]').val(startdate);
+                        $('.f').find('input[name=enddate]').val(enddate);
+                        $('.f').css({'left':time_n_left+'px'});
+                        $('.f').find('.time_right').css({'right':'0px'});
+                        $('.f').find('.time-left').css({'left':'0px'});
+                        if(ahead==1){
+                            $('.f').css({'background':'blue'});
+                        }
+                        var id=Number($(this).find('input[name=id]').val());
+                        $('.time').each(function () {
+                            var jqthis = $(this);
+                            var this_id = Number(jqthis.find('input[name=id]').val());
+                            if (this_id == id) {
+                                jqthis.addClass('f');
+                                jqthis.find('input[name=startdate]').val(startdate);
+                                jqthis.find('input[name=enddate]').val(enddate);
+                                jqthis.css({'left':time_n_left+'px'});
+                                jqthis.find('.time_right').css({'right':'0px'});
+                                jqthis.find('.time-left').css({'left':'0px'});
+                                if(ahead==1){
+                                    jqthis.css({'background':'blue'});
+                                }
+                            }
+                        })
+                        //console.log(ahead);
+                        $.ajax({
+                            url:'http://work.linran136.com/index/index/planleft',
+                            data:{id:id,startdate:startdate,enddate:enddate,ahead:ahead},
+                            type:'post',
+                            success:function (reg) {
+                                console.log(reg);
+                                if(reg){
+                                    $('.f').removeClass('f');
+                                }
+                            }
+                        })
+                    }else{
+                        $('.f').css({'left':o_left+'px'});
+                        $('.f').find('.time_right').css({'right':'0px'});
+                        $('.f').find('.time-left').css({'left':'0px'});
+                        $('.f').removeClass('f');
+                    }
+                }
+            })
+            //左右移动结束
+
+            //处理完成
+            $('.btn').click(function () {
+                if(confirm('确定任务已完成了吗？')){
+                    var c=$(this).parent('.status-every').index();
+                    // alert(c);
+                    $(this).parent('.status-every').addClass('handle');
+                    var t=$(this).parents('.status').siblings('.process').find('.time-box')
+                        .eq(c).find('.time');
+                    var id=Number(t.find('input[name=id]').val());
+                    $.ajax({
+                        url:'http://work.linran136.com/index/index/sfwc',
+                        data:{id:id},
+                        type:'post',
+                        success:function (reg) {
+                            console.log(reg);
+                            if(reg){
+                                t.addClass('green');
+                                t.css({'background':'green'});
+                                $('.handle').text('已完成');
+                                $('.handle').removeClass('handle');
+                            }
+                        }
+                    })
+                }
+
+            })
+            //处理完成结束
+
+            //双击进入任务编辑页
+            /*$('.time').dblclick(function () {
+                var id=Number($(this).find('input[name=id]').val());
+                window.open('http://work.linran136.com/admin/plan/edit.html?id='+id);
+            })*/
+            //双击进入任务编辑页结束
+
+            //默认当前年
+            var now_year=(new Date()).getFullYear();
+            //alert(now_year);
+            var new_year=Number($('input[name=nian]').val());
+            // alert(new_month);
+            if(new_year){
+                $('select[name=year]').val(new_year);
+                $('.year-text').text(new_year)
+            }else{
+                $('select[name=year]').val(now_year);
+                $('.year-text').text(now_year)
+            }
+            //默认当前年结束
+
+            //默认当前月
+            var now_month=new Date().getMonth()+1;
+           // alert(new_month);
+            var new_month=Number($('input[name=yue]').val());
+           // alert(new_month);
+            if(new_month){
+                $('select[name=month]').val(new_month);
+                $('.month-text').text(new_month);
+            }else{
+                $('select[name=month]').val(now_month);
+                $('.month-text').text(now_month);
+            }
+            //默认当前月结束
+
+            //星期按月份的日期确定
+            function weekdaytext() {
+                //alert(new Date());
+                var li_length=$('li').length;
+                for(var j=0;j<li_length;j++){
+                    //console.log('j='+j);
+                    var day_length=$('li').eq(j).find('.day').length;
+                    //console.log('天数'+day_length);
+                    for(var i=0;i<day_length;i++){
+                        //console.log('i='+i);
+                        var day=Number($('li').eq(j).find('.day').eq(i).text());
+                        var index=$('li').eq(j).find('.day').eq(i).index();
+                        //console.log('第几'+index);
+                        var year=Number($('select[name=year]').val());
+                        var month=Number($('select[name=month]').val());
+                        var time=new Date(year,month-1,day-1,34,33,33);
+                        var present_time=new Date();
+                        var present_year=present_time.getFullYear();
+                        var present_month=present_time.getMonth()+1;
+                        var present_day=present_time.getDate();
+                        //console.log('今年'+present_year);
+                        //console.log('本月'+present_month);
+                        //console.log('本天'+present_day);
+                        //console.log('当天日期'+present_year+'-'+present_month+'-'+present_day);
+                        //console.log('日期'+year+'-'+month+'-'+day);
+                        if(present_year==year && present_month==month && present_day==day){
+                            //console.log('当天');
+                            $('li').eq(j).find('.day').eq(i).css({'background':'blue'})
+                                .parent('.day-box').siblings('.week-box').find('.week').eq(i)
+                                .css({'background':'blue'});
+                        }
+                        //alert(new Date());
+                        //console.log('日期'+time);
+                        var weekday=time.getDay();
+                        //console.log('周几'+weekday);
+                        if(weekday==0){
+                            var weektime='日'
+                        }else if(weekday==1){
+                            var weektime='一';
+                        }else if(weekday==2){
+                            var weektime='二';
+                        }else if(weekday==3){
+                            var weektime='三';
+                        }else if(weekday==4){
+                            var weektime='四';
+                        }else if(weekday==5){
+                            var weektime='五';
+                        }else if(weekday==6){
+                            var weektime='六';
+                        }
+                        //console.log('星期'+weektime);
+                        var father=$('li').eq(j).find('.day').eq(i).parent('.day-box');
+                        father.siblings('.week-box').find('.week').eq(index).text(weektime);
+                    }
+                }
+            }
+            weekdaytext();
+            //星期按月份日期确定结束
+
+            //确定年月
+            $('.confirm').click(function () {
+                var year=Number($('select[name=year]').val());
+                var month=Number($('select[name=month]').val());
+                location.href='http://work.linran136.com/index/index/index.html?year='+year+'&month='+month;
+            })
+            //确定年月结束
+
+            //计划任务导航图切换
+            $('.nav-btn').click(function () {
+                //alert(1);
+                /*if($(this).text()=='任务横道图') {
+                    var text = '计划横道图';
+                    $('.nav-btn').html(text);
+                    $('input[name=nav]').val('计划');
+                }else if($(this).text()=='计划横道图'){
+                    var text = '任务横道图';
+                    $('.nav-btn').text(text);
+                    $('input[name=nav]').val('任务');
+                }*/
+                var year=Number($('select[name=year]').val());
+                var month=Number($('select[name=month]').val());
+                location.href='http://work.linran136.com/index/index/duty.html?year='+year+'&month='+month;
+            })
+            //计划任务导航图切换结束
+
+            //所有任务重要程度选择
+            $('.duty-header-text').click(function () {
+                $(this).hide();
+                $(this).siblings('.duty-header-select').show();
+            })
+            $('.duty-header-select').change(function () {
+                var value=$(this).val();
+                if(value==1){
+                    $(this).siblings('.duty-header-text').show().text('重要任务');
+                }else if(value==0){
+                    $(this).siblings('.duty-header-text').show().text('一般任务');
+                }else if(value==3){
+                    $(this).siblings('.duty-header-text').show().text('全部任务');
+                }
+                titlecenter();
+                liheight();
+                namecenter();
+                liorder();
+                weekdaytext();
+                var duty_length=$('.duty-every-header-select').length;
+                //alert(select_length);
+                //var totalexp=new Date();
+                //totalexp.setTime(totalexp.getTime()+60*1000*60*24*7);
+                //document.cookie='totalstatus='+value+';expires='+totalexp.toGMTString();
+                for(var s=0;s<duty_length;s++){
+                    var duty_text=$('.duty-header-text').text();
+                    $('.duty-every-header-text').text(duty_text);
+                    $('.duty-every-header-select').eq(s).val(value);
+                    //var exp=new Date();
+                    //exp.setTime(exp.getTime()+60*1000*60*24*7);
+                    //var vid=Number($('li').eq(s).find('input[name=vid]').val());
+                    //document.cookie='finish'+vid+'='+value+';expires='+exp.toGMTString();
+                }
+                $(this).hide();
+            })
+            //所有任务重要程度选择结束
+
+            //每个人的任务重要程度选择
+            $('.duty-every-header-text').click(function () {
+                $(this).siblings('.duty-every-header-select').show();
+                $(this).hide();
+            })
+            $('.duty-every-header-select').change(function () {
+                var value=$(this).val();
+                if(value==1){
+                    $(this).siblings('.duty-every-header-text').show().text('重要任务');
+                }else if(value==0){
+                    $(this).siblings('.duty-every-header-text').show().text('一般任务');
+                }else if(value==3){
+                    $(this).siblings('.duty-every-header-text').show().text('全部任务');
+                }
+                $(this).hide();
+            })
+            //每个人的任务重要程度选择结束
+            //所有计划重要程度选择
+            $('.title-header-text').click(function () {
+                $(this).hide();
+                $('.title-header-select').show();
+            })
+            $('.title-header-select').change(function () {
+                var value=$(this).val();
+                var status_header_select=$('.status-header-select');
+                var status_header_val=status_header_select.val();
+                if($(this).val()==1){
+                    if(status_header_val==0){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').show();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }else if(status_header_val==1){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').show();
+                        $('.usual-finish').hide();
+                    }else if(status_header_val==2){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').show();
+                        $('.important-finish').show();
+                        $('.usual-finish').hide();
+                    }
+                    $(this).siblings('.title-header-text').show().text('重要计划');
+                }else if($(this).val()==0){
+                    if(status_header_val==0){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }else if(status_header_val==1){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').hide();
+                        $('.usual-finish').show();
+                    }else if(status_header_val==2){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').hide();
+                        $('.usual-finish').show();
+                    }
+                    $(this).siblings('.title-header-text').show().text('一般计划');
+                }else if($(this).val()==3){
+                    if(status_header_val==0){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').show();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }else if(status_header_val==1){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').show();
+                        $('.usual-finish').show();
+                    }else if(status_header_val==2){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').show();
+                        $('.important-finish').show();
+                        $('.usual-finish').show();
+                    }
+                    $(this).siblings('.title-header-text').show().text('全部计划');
+                }
+                titlecenter();
+                liheight();
+                namecenter();
+                liorder();
+                weekdaytext();
+                var select_length=$('.title-every-header-select').length;
+                //alert(select_length);
+                var totalexp=new Date();
+                totalexp.setTime(totalexp.getTime()+60*1000*60*24*7);
+                document.cookie='totalimportance='+value+';expires='+totalexp.toGMTString();
+                for(var s=0;s<select_length;s++){
+                    var title_text=$('.title-header-text').text();
+                    $('.title-every-header-text').text(title_text);
+                    $('.title-every-header-select').eq(s).val(value);
+                    var exp=new Date();
+                    exp.setTime(exp.getTime()+60*1000*60*24*7);
+                    var vid=Number($('li').eq(s).find('input[name=vid]').val());
+                    document.cookie='importance'+vid+'='+value+';expires='+exp.toGMTString();
+                }
+                $(this).hide();
+            })
+            //所有计划重要程度选择结束
+
+            //每个人的计划重要程度选择
+            $('.title-every-header-text').click(function () {
+                $(this).hide();
+                $(this).siblings('.title-every-header-select').show();
+            })
+            $('.title-every-header-select').change(function () {
+                var h=$(this).parents('li').index();
+                var this_status_val=$('li').eq(h).find('.status-every-header-select').val();
+                //alert(h);
+                if($(this).val()==1){
+                    if(this_status_val==0){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_status_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_status_val==2){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }
+                    $(this).siblings('.title-every-header-text').show().text('重要计划');
+                }else if($(this).val()==0){
+                    if(this_status_val==0){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_status_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }else if(this_status_val==2){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }
+                    $(this).siblings('.title-every-header-text').show().text('一般计划');
+                }else if($(this).val()==3){
+                    if(this_status_val==0){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_status_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }else if(this_status_val==2){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }
+                    $(this).siblings('.title-every-header-text').show().text('全部计划');
+                }
+                var value=$(this).val();
+                var exp=new Date();
+                exp.setTime(exp.getTime()+60*1000*60*24*7);
+                var vid=Number($('li').eq(h).find('input[name=vid]').val());
+                document.cookie='importance'+vid+'='+value+';expires='+exp.toGMTString();
+                $(this).hide();
+                titlecenter();
+                liheight();
+                namecenter();
+                weekdaytext();
+            })
+            //每个人的计划重要程度选择结束
+
+            //所有计划完成状态选择
+            $('.status-header-text').click(function () {
+                $(this).hide();
+                $('.status-header-select').show();
+            })
+            $('.status-header-select').change(function () {
+                var value=$(this).val();
+                var title_header_select=$('.title-header-select');
+                var title_header_val=title_header_select.val();
+                if($(this).val()==0){
+                    if(title_header_val==1){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').show();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }else if(title_header_val==0){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }else if(title_header_val==3){
+                        $('.usual-unfinish').show();
+                        $('.important-unfinish').show();
+                        $('.important-finish').hide();
+                        $('.usual-finish').hide();
+                    }
+                    $(this).siblings('.status-header-text').show().text('未完成计划');
+                }else if($(this).val()==1){
+                    if(title_header_val==1){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').show();
+                        $('.usual-finish').hide();
+                    }else if(title_header_val==0){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').hide();
+                        $('.usual-finish').show();
+                    }else if(title_header_val==3){
+                        $('.usual-unfinish').hide();
+                        $('.important-unfinish').hide();
+                        $('.important-finish').show();
+                        $('.usual-finish').show();
+                    }
+                    $(this).siblings('.status-header-text').show().text('已完成计划');
+                }else if($(this).val()==2){
+                   if(title_header_val==1){
+                       $('.usual-unfinish').hide();
+                       $('.important-unfinish').show();
+                       $('.important-finish').show();
+                       $('.usual-finish').hide();
+                   }else if(title_header_val==0){
+                       $('.usual-unfinish').show();
+                       $('.important-unfinish').hide();
+                       $('.important-finish').hide();
+                       $('.usual-finish').show();
+                   }else if(title_header_val==3){
+                       $('.usual-unfinish').show();
+                       $('.important-unfinish').show();
+                       $('.important-finish').show();
+                       $('.usual-finish').show();
+                   }
+                    $(this).siblings('.status-header-text').show().text('全部计划');
+                }
+                 titlecenter();
+                liheight();
+                namecenter();
+                liorder();
+                weekdaytext();
+                var select_length=$('.status-every-header-select').length;
+                //alert(select_length);
+                var totalexp=new Date();
+                totalexp.setTime(totalexp.getTime()+60*1000*60*24*7);
+                document.cookie='totalstatus='+value+';expires='+totalexp.toGMTString();
+                for(var s=0;s<select_length;s++){
+                    var status_text=$('.status-header-text').text();
+                    $('.status-every-header-text').text(status_text);
+                    $('.status-every-header-select').eq(s).val(value);
+                    var exp=new Date();
+                    exp.setTime(exp.getTime()+60*1000*60*24*7);
+                    var vid=Number($('li').eq(s).find('input[name=vid]').val());
+                    document.cookie='finish'+vid+'='+value+';expires='+exp.toGMTString();
+                }
+                $(this).hide();
+            })
+            //所有计划完成状态选择结束
+
+            //每个人的计划完成状态选择
+            $('.status-every-header-text').click(function () {
+                $(this).hide();
+                $(this).siblings('.status-every-header-select').show();
+            })
+            $('.status-every-header-select').change(function () {
+                var h=$(this).parents('li').index();
+                var this_title_val=$('li').eq(h).find('.title-every-header-select').val();
+                //alert(h);
+                if($(this).val()==0){
+                    if(this_title_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_title_val==0){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_title_val==3){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }
+                    $(this).siblings('.status-every-header-text').show().text('未完成计划');
+                }else if($(this).val()==1){
+                    if(this_title_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_title_val==0){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }else if(this_title_val==3){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }
+                    $(this).siblings('.status-every-header-text').show().text('已完成计划');
+                }else if($(this).val()==2){
+                    if(this_title_val==1){
+                        $('li').eq(h).find('.usual-unfinish').hide();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').hide();
+                    }else if(this_title_val==0){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').hide();
+                        $('li').eq(h).find('.important-finish').hide();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }else if(this_title_val==3){
+                        $('li').eq(h).find('.usual-unfinish').show();
+                        $('li').eq(h).find('.important-unfinish').show();
+                        $('li').eq(h).find('.important-finish').show();
+                        $('li').eq(h).find('.usual-finish').show();
+                    }
+                    $(this).siblings('.status-every-header-text').show().text('全部计划');
+                }
+                var value=$(this).val();
+                var exp=new Date();
+                exp.setTime(exp.getTime()+60*1000*60*24*7);
+                var vid=Number($('li').eq(h).find('input[name=vid]').val());
+                document.cookie='finish'+vid+'='+value+';expires='+exp.toGMTString();
+                $(this).hide();
+                titlecenter();
+                liheight();
+                namecenter();
+                weekdaytext();
+            })
+            //每个人的计划完成状态选择结束
+
+            //计划详情底部超出浏览器可视区域解决办法
+            function morebottom() {
+                var jqthis=$('.enter');
+                var p_length=jqthis.find('.content').length;
+                var content_height=0;
+                for(var p=0;p<p_length;p++){
+                    var p_height=jqthis.find('.content').eq(p).height()+10;
+                    content_height=content_height+p_height;
+                }
+                jqthis.css({'height':content_height+'px'});
+                var content_top=jqthis.offset().top;
+                //console.log('内容头部'+content_top);
+                var content_bottom=content_height+content_top;
+                //console.log('内容底部'+content_bottom);
+                var ul_height=$('ul').height();
+                var ul_top=$('ul').offset().top;
+                var ul_bottom=ul_height+ul_top;
+                $('body').css({'height':ul_bottom+10+'px'});
+                //console.log('内容高度'+content_height);
+                if(content_bottom>ul_bottom){
+                    var diff_top=content_bottom-ul_bottom;
+                    //console.log('超过');
+                    jqthis.css({'top':-diff_top+'px'});
+                }else{
+                    jqthis.css({'top':'0px'});
+                }
+            }
+            //计划详情底部超出浏览器可视区域解决办法
+
+            //计划详情显示
+            $('.title-text').mouseenter(function () {
+                //alert(1);
+                if($('.enter').length>0 || $('.show').length>0){
+                    return false;
+                }else{
+                    $(this).find('.plan-content').addClass('enter');
+                    morebottom();
+                   $('.enter').mouseenter(function () {
+                        //alert(1);
+                        $(this).addClass('enter');
+                        morebottom();
+                    })
+                    $('.enter').mouseleave(function () {
+                        //alert(1);
+                        $(this).removeClass('enter');
+                    })
+                }
+            })
+
+            $('.title-text').mouseleave(function () {
+               $(this).find('.plan-content').removeClass('enter');
+            })
+            //计划详情显示结束
+
+            //非阶段性计划详情显示
+            $('.name-text').mouseenter(function () {
+                //alert(1);
+                if($('.enter').length>0 || $('.show').length>0){
+                    return false;
+                }else{
+                    $(this).find('.unonce').addClass('show');
+                    unonce();
+                    unoncetextcenter();
+                    unoncemorebottom();
+                    $('.show').mouseenter(function () {
+                        //alert(1);
+                        $(this).addClass('show');
+                        unonce();
+                        unoncetextcenter();
+                        unoncemorebottom()
+                    })
+                    $('.show').mouseleave(function () {
+                        //alert(1);
+                        $(this).removeClass('show');
+                    })
+                }
+            })
+
+            $('.name-text').mouseleave(function () {
+                $(this).find('.unonce').removeClass('show');
+            })
+            //非阶段性计划详情显示结束
+
+            //非阶段性计划移入移出
+            $('.day-play-every-title').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            $('.day-play-every-id').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+
+            $('.week-play-every-title').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            $('.week-play-every-date').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            $('.week-play-every-id').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+
+            $('.month-play-every-title').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            $('.month-play-every-date').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            $('.month-play-every-id').hover(function () {
+                $(this).addClass('active').siblings().addClass('active');
+            },function () {
+                $(this).removeClass('active').siblings().removeClass('active');
+            })
+            //非阶段性计划移入移出结束
+
+            //选择员工按钮在浏览器高度居中
+            function loubtn() {
+                var li_top=$('li').eq(0).offset().top;
+                var stop=$(document).scrollTop();
+                if(stop>li_top){
+                    $('.lou-btn').css({'display':'block'});
+                    var loubtn_height=$('.lou-btn').height()+10;
+                    var window_height=$(window).height();
+                    $('.lou-btn').css({'top':(window_height-loubtn_height)/2+'px'});
+                }else{
+                    $('.lou-btn').css({'display':'none'});
+                }
+            }
+            //选择员工按钮在浏览器高度居中结束
+
+            //楼层在浏览器高度居中
+            function loubox() {
+                var lou_length=$('.lou').length;
+                for(var x=0;x<lou_length;x++){
+                    var name=$('li').eq(x).find('.name-text').find('.person-name').text();
+                    $('.lou').eq(x).text(name);
+                }
+                var loubox_height=35*lou_length+2*(lou_length-1);
+                var window_height=$(window).height();
+                $('.lou-box').css({'top':(window_height-loubox_height)/2+'px'});
+            }
+            loubox();
+            //楼层在浏览器高度居中结束
+
+            //点击选择员工按钮，楼层出来
+            $('.lou-btn').click(function () {
+                $('.lou-box').show();
+                loubox();
+                $(this).hide();
+            })
+            $('.lou-box').mouseleave(function () {
+                loubtn();
+                $(this).hide();
+            })
+            //点击选择员工按钮，楼层出来结束
+
+            //点击楼层的每一个员工姓名，滚动条滑动哪个员工的那一栏
+            $('.lou').click(function () {
+                var index=$(this).index();
+                var litop=$('li').eq(index).offset().top;
+                $('body').animate({'scrollTop':litop+'px'},200);
+                $('.lou-box').hide();
+                loubtn();
+            })
+            //点击楼层的每一个员工姓名，滚动条滑动哪个员工的那一栏结束
+        })
+    </script>
+</head>
+<body>
+<!--头部区域-->
+<div class="header">
+    <a href="{:url('admin/entry/index')}">去后台</a>
+</div>
+<!--头部区域结束-->
+<div class="box">
+    <!--标题区域-->
+    <h1><span class="year-text">2018</span>年度<span class="month-text">1</span>月计划安排</h1>
+    <!--标题区域结束-->
+    <!--色块提示区域-->
+    <div class="notice">
+        <div class="nav-box">
+            <a class="nav-btn" href="javascript:;">任务横道图</a>
+            <input type="hidden" name="nav" value="{:input('param.nav')}">
+        </div>
+        <div class="date-box">
+            <select name="year">
+                <option value="2016">2016年</option>
+                <option value="2017">2017年</option>
+                <option value="2018">2018年</option>
+                <option value="2019">2019年</option>
+                <option value="2020">2020年</option>
+                <option value="2021">2021年</option>
+                <option value="2022">2022年</option>
+                <option value="2023">2023年</option>
+                <option value="2024">2024年</option>
+                <option value="2025">2025年</option>
+                <option value="2026">2026年</option>
+            </select>
+            <select name="month">
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="5">5月</option>
+                <option value="6">6月</option>
+                <option value="7">7月</option>
+                <option value="8">8月</option>
+                <option value="9">9月</option>
+                <option value="10">10月</option>
+                <option value="11">11月</option>
+                <option value="12">12月</option>
+            </select>
+            <a class="confirm" href="javascript:;">确定</a>
+            <input type="hidden" name="nian" value="{:input('param.year')}">
+            <input type="hidden" name="yue" value="{:input('param.month')}">
+        </div>
+        <div class="notice-box">
+        <p>
+            <span class="explain">一般：</span>
+            <span class="color pink"></span>
+        </p>
+        <p>
+            <span class="explain">重要：</span>
+            <span class="color orange"></span>
+        </p>
+            <p>
+                <span class="explain">提前：</span>
+                <span class="color blue"></span>
+            </p>
+        <p>
+            <span class="explain">已完成：</span>
+            <span class="color green"></span>
+        </p>
+        </div>
+    </div>
+    <!--色块提示区域-->
+    <!--表格头部区域-->
+    <div class="header">
+        <div class="name">员工姓名</div>
+        <div class="duty">
+            <div class="duty-header-text">重要任务</div>
+            <select class="duty-header-select">
+                <option value="1">
+                    {if condition="$totalimportance==1"}重要计划{/if}
+                </option>
+                <option value="0">一般任务</option>
+                <option value="3">全部任务</option>
+            </select>
+        </div>
+        <div class="title">
+            <div class="title-header-text">
+                {if condition="$totalimportance==0"}一般计划{/if}
+                {if condition="$totalimportance==3"}全部计划{/if}
+            </div>
+            <select class="title-header-select">
+                <option value="1" {if condition="$totalimportance==1"} selected {/if}>重要计划</option>
+                <option value="0" {if condition="$totalimportance==0"} selected {/if}>一般计划</option>
+                <option value="3" {if condition="$totalimportance==3"} selected {/if}>全部计划</option>
+            </select>
+        </div>
+        <div class="num">数量</div>
+        <div class="process">计划进程</div>
+        <div class="status">
+            <div class="status-header-text">
+                {if condition="$totalstatus==0"}未完成计划{/if}
+                {if condition="$totalstatus==1"}已完成计划{/if}
+                {if condition="$totalstatus==2"}全部计划{/if}
+            </div>
+            <select class="status-header-select">
+                <option value="0" {if condition="$totalstatus==0"} selected {/if}>未完成计划</option>
+                <option value="1" {if condition="$totalstatus==1"} selected {/if}>已完成计划</option>
+                <option value="2" {if condition="$totalstatus==2"} selected {/if}>全部计划</option>
+            </select>
+        </div>
+</div>
+    <!--表格头部区域结束-->
+    <!--表格主体区域-->
+<ul class="ul">
+        {foreach name='data' item='v'}
+        <li class="li">
+            <div class="name">
+                <input type="hidden" name="vid" value="{$v['vid']}">
+                <div class="name-text">
+                    <span class="person-name">{$v['name']}</span>
+                    <div class="unonce">
+                        <div class="unonce-box-title">非阶段性计划</div>
+                        <div class="unonce-box">
+                            <div class="unonce-every-day">
+                                <p class="day-title">每日</p>
+                                <div class="day-haeder">
+                                    <div class="day-play-id">编号</div>
+                                    <div class="day-play-title">计划名称</div>
+                                </div>
+                                <div class="day-plan-box">
+                                    {foreach name="v['dayplan']" key='k' item='vo'}
+                                    <div class="day-every-title">
+                                        <div class="day-play-every-id">{$k+1}</div>
+                                        <div class="day-play-every-title">
+                                            <span class="day-title-text">
+                                                <a target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="unonce-every-week">
+                                <p class="week-title">每周</p>
+                                <div class="week-haeder">
+                                    <div class="week-play-id">编号</div>
+                                    <div class="week-play-title">计划名称</div>
+                                    <div class="week-play-type">星期</div>
+                                </div>
+                                <div class="week-plan-box">
+                                    {foreach name="v['weekplan']" key='k' item='vo'}
+                                    <div class="week-every-title">
+                                        <div class="week-play-every-id">{$k+1}</div>
+                                        <div class="week-play-every-title">
+                                            <span class="week-title-text">
+                                                <a target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                                            </span>
+                                        </div>
+                                        <div class="week-play-every-date">{$vo['mzj']}</div>
+                                    </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                            <div class="unonce-every-month">
+                                <p class="month-title">每月</p>
+                                <div class="month-haeder">
+                                    <div class="month-play-id">编号</div>
+                                    <div class="month-play-title">计划名称</div>
+                                    <div class="month-play-type">日期</div>
+                                </div>
+                                <div class="month-plan-box">
+                                    {foreach name="v['monthplan']" key='k' item='vo'}
+                                    <div class="month-every-title">
+                                        <div class="month-play-every-id">{$k+1}</div>
+                                        <div class="month-play-every-title">
+                                            <span class="month-title-text">
+                                                <a target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                                            </span>
+                                        </div>
+                                        <div class="month-play-every-date">{$vo['myj']}</div>
+                                    </div>
+                                    {/foreach}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="duty">
+                <div class="duty-header">
+                    <div class="duty-every-header-text">重要任务</div>
+                    <select class="duty-every-header-select">
+                        <option value="1">重要任务</option>
+                        <option value="0">一般任务</option>
+                        <option value="3">全部任务</option>
+                    </select>
+                </div>
+                <div class="duty-box">
+                    {foreach name="v['plan']" item='vo'}
+                    {if condition="$vo['zxpl']==0"}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="duty-every important-unfinish">
+                        <div class="duty-text">
+                            {if condition="$vo['duty']"}
+                            <a target="_blank" href="http://oa.jiaat.com/mobile/rwgl/view.php?id={$vo['duty']['id']}">{$vo['duty']['title']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                    {else /}
+                    <div class="duty-every important-finish">
+                        <div class="duty-text">
+                            {if condition="$vo['duty']"}
+                            <a target="_blank" href="http://oa.jiaat.com/mobile/rwgl/view.php?id={$vo['duty']['id']}">{$vo['duty']['title']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="duty-every usual-unfinish">
+                        <div class="duty-text">
+                            {if condition="$vo['duty']"}
+                            <a target="_blank" href="http://oa.jiaat.com/mobile/rwgl/view.php?id={$vo['duty']['id']}">{$vo['duty']['title']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                    {else /}
+                    <div class="duty-every usual-finish">
+                        <div class="duty-text">
+                            {if condition="$vo['duty']"}
+                            <a target="_blank" href="http://oa.jiaat.com/mobile/rwgl/view.php?id={$vo['duty']['id']}">{$vo['duty']['title']}</a>
+                            {/if}
+                        </div>
+                    </div>
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/foreach}
+                </div>
+            </div>
+            <div class="title">
+                <div class="title-header">
+                    <div class="title-every-header-text">重要计划</div>
+                    <select class="title-every-header-select">
+                        <option value="1" {if condition="$v['importance']==1"} selected {/if}>重要计划</option>
+                        <option value="0" {if condition="$v['importance']==0"} selected {/if}>一般计划</option>
+                        <option value="3" {if condition="$v['importance']==3"} selected {/if}>全部计划</option>
+                    </select>
+                </div>
+                <div class="title-box">
+                    {foreach name="v['plan']" item='vo'}
+                    {if condition="$vo['zxpl']==0"}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="title-every important-unfinish">
+                        {if condition="$vo['url']"}
+                <div class="title-header">
+                    <div class="title-every-header-text">重要计划</div>
+                    <select class="title-every-header-select">
+                        <option value="1">重要计划</option>
+                        <option value="0">一般计划</option>
+                        <option value="3">全部计划</option>
+                    </select>
+                </div>
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {else /}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="title-every important-finish">
+                        {if condition="$vo['url']"}
+                        <div class="title-header">
+                            <div class="title-every-header-text">重要计划</div>
+                            <select class="title-every-header-select">
+                                <option value="1">重要计划</option>
+                                <option value="0">一般计划</option>
+                                <option value="3">全部计划</option>
+                            </select>
+                        </div>
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {else /}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="title-every usual-unfinish">
+                        {if condition="$vo['url']"}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {else /}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="title-every usual-finish">
+                        {if condition="$vo['url']"}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {else /}
+                        <div class="title-text">
+                            <div class="plan-title-text">
+                                <a class="url" target="_blank" href=" http://oa.jiaat.com/mobile/gzjh/view.php?id={$vo['id']}">{$vo['title']}</a>
+                            </div>
+                            <div class="plan-content">
+                                <p class="content">主题：{$vo['title']}</p>
+                                <p class="content">计划设置：{$vo['type']}</p>
+                                <p class="content">所属任务：{$vo['duty']['title']}</p>
+                                <p class="content">重要程度：
+                                    {if condition="$vo['zycd']"}
+                                    重要
+                                    {else /}
+                                    一般
+                                    {/if}
+                                </p>
+                                <p class="content">负责人：{$vo['person']}</p>
+                                <p class="content">参与人员：{$vo['participation']}</p>
+                                <p class="content">开始日期：{$vo['startdate']}</p>
+                                <p class="content">结束日期：{$vo['enddate']}</p>
+                                <p class="content">执行频率：
+                                    阶段
+                                </p>
+                                <p class="content">备注：{$vo['note']}</p>
+                                <p class="content">
+                                    计划进度：{if condition="$vo['sfwc']"}
+                                    已完成
+                                    {else /}
+                                    进行中
+                                    {/if}
+                                </p>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/foreach}
+                </div>
+            </div>
+            <div class="num">
+                <div class="num-header">
+                    数量
+                </div>
+                <div class="num-box">
+                    {foreach name="v['plan']" item='vo'}
+                    {if condition="$vo['zxpl']==0"}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="num-every important-unfinish">
+                        {$vo['num']}
+                    </div>
+                    {else /}
+                    <div class="num-every important-finish">
+                        {$vo['num']}
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="num-every usual-unfinish">
+                        {$vo['num']}
+                    </div>
+                    {else /}
+                    <div class="num-every usual-finish">
+                        {$vo['num']}
+                    </div>
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/foreach}
+                </div>
+            </div>
+            <div class="process">
+                <div class="timetable">
+                    <div class="day-box">
+                        {if condition="in_array($presentMonth,[1,3,5,7,8,10,12])"}
+                        <p class="day">01</p>
+                        <p class="day">02</p>
+                        <p class="day">03</p>
+                        <p class="day">04</p>
+                        <p class="day">05</p>
+                        <p class="day">06</p>
+                        <p class="day">07</p>
+                        <p class="day">08</p>
+                        <p class="day">09</p>
+                        <p class="day">10</p>
+                        <p class="day">11</p>
+                        <p class="day">12</p>
+                        <p class="day">13</p>
+                        <p class="day">14</p>
+                        <p class="day">15</p>
+                        <p class="day">16</p>
+                        <p class="day">17</p>
+                        <p class="day">18</p>
+                        <p class="day">19</p>
+                        <p class="day">20</p>
+                        <p class="day">21</p>
+                        <p class="day">22</p>
+                        <p class="day">23</p>
+                        <p class="day">24</p>
+                        <p class="day">25</p>
+                        <p class="day">26</p>
+                        <p class="day">27</p>
+                        <p class="day">28</p>
+                        <p class="day">29</p>
+                        <p class="day">30</p>
+                        <p style="border-right: none" class="day">31</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[4,6,9,11])"}
+                        <p class="day">01</p>
+                        <p class="day">02</p>
+                        <p class="day">03</p>
+                        <p class="day">04</p>
+                        <p class="day">05</p>
+                        <p class="day">06</p>
+                        <p class="day">07</p>
+                        <p class="day">08</p>
+                        <p class="day">09</p>
+                        <p class="day">10</p>
+                        <p class="day">11</p>
+                        <p class="day">12</p>
+                        <p class="day">13</p>
+                        <p class="day">14</p>
+                        <p class="day">15</p>
+                        <p class="day">16</p>
+                        <p class="day">17</p>
+                        <p class="day">18</p>
+                        <p class="day">19</p>
+                        <p class="day">20</p>
+                        <p class="day">21</p>
+                        <p class="day">22</p>
+                        <p class="day">23</p>
+                        <p class="day">24</p>
+                        <p class="day">25</p>
+                        <p class="day">26</p>
+                        <p class="day">27</p>
+                        <p class="day">28</p>
+                        <p class="day">29</p>
+                        <p style="border-right: none" class="day">30</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[2]) and $presentYear%4!==0"}
+                        <p class="day">01</p>
+                        <p class="day">02</p>
+                        <p class="day">03</p>
+                        <p class="day">04</p>
+                        <p class="day">05</p>
+                        <p class="day">06</p>
+                        <p class="day">07</p>
+                        <p class="day">08</p>
+                        <p class="day">09</p>
+                        <p class="day">10</p>
+                        <p class="day">11</p>
+                        <p class="day">12</p>
+                        <p class="day">13</p>
+                        <p class="day">14</p>
+                        <p class="day">15</p>
+                        <p class="day">16</p>
+                        <p class="day">17</p>
+                        <p class="day">18</p>
+                        <p class="day">19</p>
+                        <p class="day">20</p>
+                        <p class="day">21</p>
+                        <p class="day">22</p>
+                        <p class="day">23</p>
+                        <p class="day">24</p>
+                        <p class="day">25</p>
+                        <p class="day">26</p>
+                        <p class="day">27</p>
+                        <p style="border-right: none" class="day">28</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[2]) and $presentYear%4==0"}
+                        <p class="day">01</p>
+                        <p class="day">02</p>
+                        <p class="day">03</p>
+                        <p class="day">04</p>
+                        <p class="day">05</p>
+                        <p class="day">06</p>
+                        <p class="day">07</p>
+                        <p class="day">08</p>
+                        <p class="day">09</p>
+                        <p class="day">10</p>
+                        <p class="day">11</p>
+                        <p class="day">12</p>
+                        <p class="day">13</p>
+                        <p class="day">14</p>
+                        <p class="day">15</p>
+                        <p class="day">16</p>
+                        <p class="day">17</p>
+                        <p class="day">18</p>
+                        <p class="day">19</p>
+                        <p class="day">20</p>
+                        <p class="day">21</p>
+                        <p class="day">22</p>
+                        <p class="day">23</p>
+                        <p class="day">24</p>
+                        <p class="day">25</p>
+                        <p class="day">26</p>
+                        <p class="day">27</p>
+                        <p class="day">28</p>
+                        <p style="border-right: none" class="day">29</p>
+                        {/if}
+                    </div>
+                    <div class="week-box">
+                        {if condition="in_array($presentMonth,[1,3,5,7,8,10,12])"}
+                        <p class="week">01</p>
+                        <p class="week">02</p>
+                        <p class="week">03</p>
+                        <p class="week">04</p>
+                        <p class="week">05</p>
+                        <p class="week">06</p>
+                        <p class="week">07</p>
+                        <p class="week">08</p>
+                        <p class="week">09</p>
+                        <p class="week">10</p>
+                        <p class="week">11</p>
+                        <p class="week">12</p>
+                        <p class="week">13</p>
+                        <p class="week">14</p>
+                        <p class="week">15</p>
+                        <p class="week">16</p>
+                        <p class="week">17</p>
+                        <p class="week">18</p>
+                        <p class="week">19</p>
+                        <p class="week">20</p>
+                        <p class="week">21</p>
+                        <p class="week">22</p>
+                        <p class="week">23</p>
+                        <p class="week">24</p>
+                        <p class="week">25</p>
+                        <p class="week">26</p>
+                        <p class="week">27</p>
+                        <p class="week">28</p>
+                        <p class="week">29</p>
+                        <p class="week">30</p>
+                        <p style="border-right: none" class="week">31</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[4,6,9,11])"}
+                        <p class="week">01</p>
+                        <p class="week">02</p>
+                        <p class="week">03</p>
+                        <p class="week">04</p>
+                        <p class="week">05</p>
+                        <p class="week">06</p>
+                        <p class="week">07</p>
+                        <p class="week">08</p>
+                        <p class="week">09</p>
+                        <p class="week">10</p>
+                        <p class="week">11</p>
+                        <p class="week">12</p>
+                        <p class="week">13</p>
+                        <p class="week">14</p>
+                        <p class="week">15</p>
+                        <p class="week">16</p>
+                        <p class="week">17</p>
+                        <p class="week">18</p>
+                        <p class="week">19</p>
+                        <p class="week">20</p>
+                        <p class="week">21</p>
+                        <p class="week">22</p>
+                        <p class="week">23</p>
+                        <p class="week">24</p>
+                        <p class="week">25</p>
+                        <p class="week">26</p>
+                        <p class="week">27</p>
+                        <p class="week">28</p>
+                        <p class="week">29</p>
+                        <p style="border-right: none" class="week">30</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[2]) and $presentYear%4!==0"}
+                        <p class="week">01</p>
+                        <p class="week">02</p>
+                        <p class="week">03</p>
+                        <p class="week">04</p>
+                        <p class="week">05</p>
+                        <p class="week">06</p>
+                        <p class="week">07</p>
+                        <p class="week">08</p>
+                        <p class="week">09</p>
+                        <p class="week">10</p>
+                        <p class="week">11</p>
+                        <p class="week">12</p>
+                        <p class="week">13</p>
+                        <p class="week">14</p>
+                        <p class="week">15</p>
+                        <p class="week">16</p>
+                        <p class="week">17</p>
+                        <p class="week">18</p>
+                        <p class="week">19</p>
+                        <p class="week">20</p>
+                        <p class="week">21</p>
+                        <p class="week">22</p>
+                        <p class="week">23</p>
+                        <p class="week">24</p>
+                        <p class="week">25</p>
+                        <p class="week">26</p>
+                        <p class="week">27</p>
+                        <p style="border-right: none" class="week">28</p>
+                        {/if}
+                        {if condition="in_array($presentMonth,[2]) and $presentYear%4==0"}
+                        <p class="week">01</p>
+                        <p class="week">02</p>
+                        <p class="week">03</p>
+                        <p class="week">04</p>
+                        <p class="week">05</p>
+                        <p class="week">06</p>
+                        <p class="week">07</p>
+                        <p class="week">08</p>
+                        <p class="week">09</p>
+                        <p class="week">10</p>
+                        <p class="week">11</p>
+                        <p class="week">12</p>
+                        <p class="week">13</p>
+                        <p class="week">14</p>
+                        <p class="week">15</p>
+                        <p class="week">16</p>
+                        <p class="week">17</p>
+                        <p class="week">18</p>
+                        <p class="week">19</p>
+                        <p class="week">20</p>
+                        <p class="week">21</p>
+                        <p class="week">22</p>
+                        <p class="week">23</p>
+                        <p class="week">24</p>
+                        <p class="week">25</p>
+                        <p class="week">26</p>
+                        <p class="week">27</p>
+                        <p class="week">28</p>
+                        <p style="border-right: none" class="week">29</p>
+                        {/if}
+                    </div>
+                </div>
+                <div class="process-box">
+                    {if condition="in_array($presentMonth,[1,3,5,7,8,10,12])"}
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p style="border-right:none;" class="td"></p>
+                    {/if}
+                    {if condition="in_array($presentMonth,[4,6,9,11])"}
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    {/if}
+                    {if condition="in_array($presentMonth,[2]) and $presentYear%4!==0"}
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    {/if}
+                    {if condition="in_array($presentMonth,[2]) and $presentYear%4==0"}
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    <p class="td"></p>
+                    {/if}
+
+                </div>
+                <div class="line"></div>
+                <div class="time-outbox">
+                    {foreach name="v['plan']" item='vo'}
+                    {if condition="$vo['zxpl']==0"}
+                    {if condition="$vo['startdate']==''"}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="time-box important-unfinish">
+                    </div>
+                    {else /}
+                    <div class="time-box important-finish">
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="time-box usual-unfinish">
+                    </div>
+                    {else /}
+                    <div class="time-box usual-finish">
+                    </div>
+                    {/if}
+                    {/if}
+                    {else /}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="time-box important-unfinish">
+                        {if condition="($vo['sfwc']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time green">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==0) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time pink">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==1) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time orange">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==2) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time yellow">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time blue">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="time-box important-finish">
+                        {if condition="($vo['sfwc']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time green">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==0) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time pink">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==1) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time orange">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==2) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time yellow">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time blue">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="time-box usual-unfinish">
+                        {if condition="($vo['sfwc']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time green">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==0) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time pink">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==1) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time orange">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==2) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time yellow">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time blue">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="time-box usual-finish">
+                        {if condition="($vo['sfwc']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time green">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==0) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time pink">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==1) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time orange">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['zycd']==2) and (!$vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time yellow">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['ahead']) and (ltrim(strrchr($vo['startdate'],'-'),'-')) and (ltrim(strrchr($vo['enddate'],'-'),'-'))"}
+                        <div class="time blue">
+                            <input type="hidden" name="id" value="{$vo['id']}">
+                            <input type="hidden" name="startdate" value="{:ltrim(strrchr($vo['startdate'],'-'),'-')}">
+                            <input type="hidden" name="enddate" value="{:ltrim(strrchr($vo['enddate'],'-'),'-')}">
+                            <div class="time-right"></div>
+                            <div class="time-left"></div>
+                        </div>
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/foreach}
+                </div>
+
+            </div>
+            <div class="status">
+                <div class="status-header">
+                    <div class="status-every-header-text">未完成计划</div>
+                    <select class="status-every-header-select">
+                        <option value="0" {if condition="$v['finish']==0"} selected {/if}>未完成计划</option>
+                        <option value="1" {if condition="$v['finish']==1"} selected {/if}>已完成计划</option>
+                        <option value="2" {if condition="$v['finish']==2"} selected {/if}>全部计划</option>
+                    </select>
+                </div>
+                <div class="status-box">
+                    {foreach name="v['plan']" item='vo'}
+                    {if condition="$vo['zxpl']==0"}
+                    {if condition="$vo['zycd']==1"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="status-every important-unfinish">
+                        {if condition="$vo['sfwc']"}
+                        已完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='')"}
+                        <a class="btn">未完成</a>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']=='')"}
+                        未完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='') and (!$vo['well'])"}
+                        未完成
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="status-every important-finish">
+                        {if condition="$vo['sfwc']"}
+                        已完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='')"}
+                        <a class="btn">未完成</a>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']=='')"}
+                        未完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='') and (!$vo['well'])"}
+                        未完成
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {if condition="$vo['zycd']==0"}
+                    {if condition="$vo['sfwc']==0"}
+                    <div class="status-every usual-unfinish">
+                        {if condition="$vo['sfwc']"}
+                        已完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='')"}
+                        <a class="btn">未完成</a>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']=='')"}
+                        未完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='') and (!$vo['well'])"}
+                        未完成
+                        {/if}
+                    </div>
+                    {else /}
+                    <div class="status-every usual-finish">
+                        {if condition="$vo['sfwc']"}
+                        已完成
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']!=='')"}
+                        <a class="btn">未完成</a>
+                        {/if}
+                        {if condition="(!$vo['sfwc']) and ($vo['startdate']=='')"}
+                        未完成
+                        {/if}
+                    </div>
+                    {/if}
+                    {/if}
+                    {/if}
+                    {/foreach}
+                </div>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+    <!--表格主体区域结束-->
+   <!-- 楼层按钮-->
+    <a class="lou-btn" href="javascript:;">
+        选择员工
+    </a>
+    <div class="lou-box">
+        {foreach name='data' item='v'}
+        <a class="lou" href="javascript:;">
+            {$v['name']}
+        </a>
+        {/foreach}
+    </div>
+    <!-- 楼层按钮结束-->
+</div>
+</body>
+</html>
